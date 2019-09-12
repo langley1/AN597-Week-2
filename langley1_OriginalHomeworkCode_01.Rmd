@@ -37,7 +37,8 @@ my_charvect<- c("Stately,", "plump", "Buck", "Mulligan", "came", "from", "the", 
 #Tried this... but "from" must be a finate number NOT a character
 my_charvect[seq(from = "Stately", to = "crossed", by = 3)]
 
-## I couldn't think of one command to use to pull every 3rd word so I decided to create a matrix with every 3rd word in the 3rd column
+## PERSONAL DIFFICULTY 1:
+  #I couldn't think of one command to use to pull every 3rd word so I decided to create a matrix with every 3rd word in the 3rd column... see below
 #Creating a character matrix with 3 columns so that I can only look at the 3rd column for all the third words; making byrow= TRUE so that the words go in order across the rows
 my_charvect_matrix <- matrix(data= my_charvect, nrow=8,ncol=3, byrow = TRUE)
 
@@ -52,7 +53,8 @@ m <- matrix(data=1:80,nrow=8,ncol=10,byrow=FALSE)
 m
 
 #extracting the 2nd, 3rd, and 6th columns
-## this one gave me some trouble: I tried x<- m[,(2,3,6)], x<- m[,2,3,6], x<- m[,2], m[,3], m[,6], and x<- m[1:8,2] m[1:8,3] m[1:8,6] before I realized I needed to use c()
+## PERSONAL DIFFICULTY 2:
+  #this one gave me some trouble: I tried x<- m[,(2,3,6)], x<- m[,2,3,6], x<- m[,2], m[,3], m[,6], and x<- m[1:8,2] m[1:8,3] m[1:8,6] before I realized I needed to use c()
 x<- m[,c(2,3,6)]
 
 #extracting the 6th-8th row
@@ -65,6 +67,8 @@ x
 
 ### CHALLENGE 3
 #Constructing a 4-dimensional, 400 element array
+## PERSONAL DIFFICULTY 3:
+  #I was stuck on this one for a bit because I didn't know if you could have 4 numbers inside the c(). In the example on the module, it stated that the code is dim=c(#rows, #cols, #levels)... so what the 4th number denoting? (still confused)
 a <- array(data=400:1, dim=c(5,5,4,4))
 a
 a[1, 1, 1, 2]     #this = 300
@@ -92,7 +96,7 @@ m[2:5,4:8] <- matrix(data = c(20:1), nrow=4,ncol=5,byrow=TRUE)
 #makes column 8 go back to "a", "b" values 
 m[,8] <- c("a","b")
 
-#Lists and Data Frames
+#Lists and Data Frames: copying these codes from the module just to practice
 s <- c("this","is","a","vector","of","strings")
 m <- matrix(data=1:40, nrow=5, ncol=8)
 b<- FALSE
@@ -121,8 +125,87 @@ Catarrhini<- list("Cercopithecidae", "Hylobatidae", "Hominidae")
 Lorisoidea<- list("Lorisidae", "Galagidae")
 Lemuroidae<- list("Cheriogalaedae", "Lepilemuridae", "Indriidae", "Lemuridae", "Daubentoniidae")
 
-#My full taxonomy List: Any element that does NOT have "" is a list from up above
+## PERSONAL DIFFICULTY 4:
+  #I wasn't what the best way to do this was. I knew from his "hint" that we should have lists as elements in other lists so I did that for a few of the subgroups but not all. Is there a way to display it so that it indents as you move down the groups (as seen in the module?). 
+#My full taxonomy List: Any element that does NOT have "" is a pre-made list from up above
 Full_tax<- list("Primates", "Haplorhini", "Anthropoidea", "Platyrrhini", Platyrrhini, "Catarrhini", Catarrhini, "Tarsioidea", "Tarsiidae", "Strepsirhini", "Lorisoidea", Lorisoidea, "Lemuroidae", Lemuroidae)
+
+#This is what Full_tax looks like 
+[[1]]
+[1] "Primates"
+
+[[2]]
+[1] "Haplorhini"
+
+[[3]]
+[1] "Anthropoidea"
+
+[[4]]
+[1] "Platyrrhini"
+
+[[5]]
+[[5]][[1]]
+[1] "Cebidae"
+
+[[5]][[2]]
+[1] "Atelidae"
+
+[[5]][[3]]
+[1] "Pitheciidae"
+
+
+[[6]]
+[1] "Catarrhini"
+
+[[7]]
+[[7]][[1]]
+[1] "Cercopithecidae"
+
+[[7]][[2]]
+[1] "Hylobatidae"
+
+[[7]][[3]]
+[1] "Hominidae"
+
+
+[[8]]
+[1] "Tarsioidea"
+
+[[9]]
+[1] "Tarsiidae"
+
+[[10]]
+[1] "Strepsirhini"
+
+[[11]]
+[1] "Lorisoidea"
+
+[[12]]
+[[12]][[1]]
+[1] "Lorisidae"
+
+[[12]][[2]]
+[1] "Galagidae"
+
+
+[[13]]
+[1] "Lemuroidae"
+
+[[14]]
+[[14]][[1]]
+[1] "Cheriogalaedae"
+
+[[14]][[2]]
+[1] "Lepilemuridae"
+
+[[14]][[3]]
+[1] "Indriidae"
+
+[[14]][[4]]
+[1] "Lemuridae"
+
+[[14]][[5]]
+[1] "Daubentoniidae"
 
 #Creating a data frame from scratch
 df <- data.frame(firstName=c("Nitin","Silvy","Ingrid","Claire"), program=c("iSchool","Anthro","Anthro","EEB"), sex=c("M","F","F","F"), yearInProgram=c(1,2,2,3))
@@ -156,6 +239,8 @@ new_df <- df[df$school == "BU", c("name.last", "name.first", "school")]
 
 ### CHALLENGE 5
 #create a new 5x3 matrix
+## PERSONAL DIFFICULTY 5:
+  # I didn't know if 5x3 matrix means rows=5, cols=3 OR rows=3, cols=5.. so I decided to just go with rows=3, cols=5
 new_matrix<- matrix(data= c(3,0,1,23,1,2,33,1,1,42,0,1,41,0,2), nrow=3, ncol=5, byrow = TRUE)
 
 #Coerce the matrix to a data frame
@@ -163,7 +248,7 @@ data_frame<- data.frame(new_matrix)
 
 #show only column 2
 data_frame$X2
-## data_frame[X2] does NOT work because we didn't name column 2
+# NOTE: data_frame[X2] does NOT work because we didn't name column 2
 
 #coerce column 2 to be logical-valued
 col2<- as.logical(data_frame$X2)
